@@ -1,0 +1,21 @@
+{
+    "name": "feedback_elicitation_dialog",
+    "version": "1.0.0",
+    "description": "ACDL reusable dialog for eliciting feedback from users",
+    "license": "AmazonSoftwareLicense",
+    "scripts": {
+      "clean": "rm -rf lib",
+      "build": "acc"
+    },
+    "dependencies": {
+      "@alexa/ac-core": "^0.0.0",
+      "@alexa/schema": "^0.0.0"
+    },
+    "devDependencies": {
+      "@alexa/acdl": "^0.1.0"
+    },
+    "ask": {
+      "srcDir": "src"
+    }
+  }
+  

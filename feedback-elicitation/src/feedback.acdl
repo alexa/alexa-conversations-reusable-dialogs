@@ -1,0 +1,42 @@
+namespace com.feedback
+
+//ac-core libraries
+import com.amazon.alexa.ask.conversations.*
+import com.amazon.ask.types.builtins.AMAZON.*
+import com.amazon.alexa.schema.*
+//response/prompts
+import prompts.*
+
+type RatingRequest {
+    NUMBER rating
+}
+
+InformRatingEvent = utterances<RatingRequest>([
+    "my score is {rating}",
+    "that was a {rating} conversation",
+    "i rate you a {rating}",
+    "{rating}"
+])
+
+@validateArg(rating > 0 && rating <= 5, requestsaverating_apla, saveRating.arguments.rating)
+action Nothing saveRating(Number rating)
+
+//reusable
+dialog Nothing GetFeedback(APLA feedback_prompt, Thing payload, Action notifyAction) {
+    sample {
+        response(feedback_prompt, 
+            Notify {actionName = notifyAction, success = true},
+            Offer {actionName = saveRating, arguments = [saveRating.arguments.rating]}, 
+            payload = payload)
+        
+        myRating = expect(Invoke, InformRatingEvent)
+        ensure(RequestArguments {arguments = [saveRating.arguments.rating], response = feedback_prompt})
+        
+        saveRating(myRating.rating)
+        response(notifysaverating_apla, Notify {actionName = saveRating, success = true})
+    }
+}
+
+
+
+
