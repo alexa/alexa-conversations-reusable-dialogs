@@ -17,12 +17,15 @@ ___
 ### Arguments:
 
 | Name |Type | Description |
+|---|---|---|
 | feedback_prompt | APLA | The APLA response prompt to be used for requesting feedback |
 | payload | Thing | Response payload of the previous action called |
 | notifyAction | Action | Previous action called before calling the FeedbackElicitation dialog |
 						
 ### Return:
-Type: Nothing
+| Type | Description |
+|---|---|
+| Nothing | `nothing` literal |
 
 ** Feedback Elicitation must be called after an action call. It will act as the response after the action then offer up the feedback elicitation action.
 
