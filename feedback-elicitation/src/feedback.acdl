@@ -4,8 +4,10 @@ namespace com.feedback
 import com.amazon.alexa.ask.conversations.*
 import com.amazon.ask.types.builtins.AMAZON.*
 import com.amazon.alexa.schema.*
-//response/prompts
-import prompts.*
+
+//responses
+requestsaverating_apla = apla("../response/prompts/notifysaverating_apla/document.json")
+notifysaverating_apla = apla("../response/prompts/requestsaverating_apla/document.json")
 
 type RatingRequest {
     NUMBER rating
