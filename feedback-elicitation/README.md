@@ -4,12 +4,17 @@ ___
 Feedback Elicitation is an ACDL Reusable Dialog that gives skill developers an easy way to collect feedback about their skill from customers. Currently, Feedback Elicitation requests and collects a numeric rating from the user.
 
 
-## Installation {WIP}
+## Installation
 ___
 
-1. Have the latest version of acc (@alexa/acdl) isntalled locally: https://www.npmjs.com/package/@alexa/acdl
-2. In you skill package, install feedback elicitation via npm[TODO]
-
+1. Install the latest version of [acc (@alexa/acdl)](https://www.npmjs.com/package/@alexa/acdl) globally
+ ```
+ npm i -g @alexa/acdl
+ ```
+2. Install [@ac-reusable-dialogs/feedback-elicitation](https://www.npmjs.com/package/@ac-reusable-dialogs/feedback-elicitation)
+```
+npm i @ac-reusable-dialogs/feedback-elicitation
+```
 
 ## Overview
 ___
@@ -36,10 +41,23 @@ ___
 ### Basic example:
 
 ```
+...
+import com.ac.reusable.dialogs.feedback.*
+
+sample_apla = apla("../resources/prompts/sample_apla/document.json")
+
+type SamplePayload {
+    Number num
+}
+
+action Number sampleAction()
+
+...
+
 sample {
     ...
-    x = sample_action()
-    GetFeedback(sample_apla, payload = SamplePayload {num = num}, notifyAction = sampleAction)
+    x = sampleAction()
+    GetFeedback(feedback_prompt=sample_apla, payload = SamplePayload {num = x}, notifyAction = sampleAction)
     ...
 }
 ```
@@ -56,7 +74,7 @@ import com.amazon.ask.types.builtins.AMAZON.*
 import com.amazon.alexa.schema.Nothing
 import com.amazon.alexa.schema.Thing
 import com.amazon.alexa.schema.Number
-import com.feedback.*
+import com.ac.reusable.dialogs.feedback.*
 
 numericfeedback_apla = apla("../response/prompts/numericfeedback_apla/document.json")
 

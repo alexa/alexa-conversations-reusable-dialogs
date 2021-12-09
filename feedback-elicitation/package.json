@@ -1,6 +1,6 @@
 {
   "name": "@ac-reusable-dialogs/feedback-elicitation",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "publisher": "Amazon",
   "description": "ACDL reusable dialog for eliciting feedback from users",
   "license": "AmazonSoftwareLicense",

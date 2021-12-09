@@ -1,4 +1,4 @@
-namespace com.feedback
+namespace com.ac.reusable.dialogs.feedback
 
 //ac-core libraries
 import com.amazon.alexa.ask.conversations.*
