@@ -109,9 +109,9 @@ action Number getNumber()
 dialog Nothing MainDialog {
     sample {
         expect(Invoke, getStart)
-        num = getNumber()
+        number = getNumber()
         //Feedback Elicitation usage
-        GetFeedback(numericfeedback_apla, payload = NumPayload {num = num}, notifyAction = getNumber)  
+        GetFeedback(numericfeedback_apla, payload = NumPayload {num = number}, notifyAction = getNumber)  
     }
 }
 ```
